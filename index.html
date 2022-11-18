@@ -3,29 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <title>Momentum App</title>
   </head>
   <body>
-    <form id="login-form" class="hidden">
-      <input
-        required
-        maxlength="15"
-        type="text"
-        placeholder="What is your name?"
-      />
-      <input type="submit" value="Log In" />
-    </form>
-    <h2 id="clock">00:00:00</h2>
-    <h1 id="greeting" class="hidden"></h1>
-    <form id="todo-form">
-      <input type="text" placeholder="Write a To Do and Press Enter" required />
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
-      <span></span>
-      <span></span>
+    <div class="vertical-center">
+      <form id="login-form" class="hidden">
+        <input
+          required
+          maxlength="15"
+          type="text"
+          placeholder="What is your name?"
+        />
+        <input type="submit" value="Log In" />
+      </form>
+      <div id="weather">
+        <span></span>
+        <span></span>
+      </div>
+      <h2 id="clock">00:00:00</h2>
+      <h1 id="greeting" class="hidden"></h1>
+      <div id="todo-box" class="hidden">
+        <form id="todo-form">
+          <input
+            type="text"
+            placeholder="Write a To Do and Press Enter"
+            required
+          />
+        </form>
+        <ul id="todo-list"></ul>
+      </div>
     </div>
-    <div id="weather">
+    <div id="quote">
       <span></span>
       <span></span>
     </div>
