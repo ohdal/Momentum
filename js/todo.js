@@ -4,9 +4,10 @@ const todoList = document.getElementById("todo-list");
 
 const TODOLIST_KEY = "todolist";
 
-let todos = JSON.parse(localStorage.getItem(TODOLIST_KEY)) || [];
+let user = localStorage.getItem(USERNAME_KEY);
+let todos = JSON.parse(localStorage.getItem(user + TODOLIST_KEY)) || [];
 
-if (todos.length > 0) {
+if (todos.length > 0 && user) {
   for (let i = 0; i < todos.length; i++) {
     paintTodo(todos[i]);
   }
@@ -14,8 +15,8 @@ if (todos.length > 0) {
 
 function saveTodo(todo) {
   if (todo) todos.push(todo);
-  console.log(todos);
-  localStorage.setItem(TODOLIST_KEY, JSON.stringify(todos));
+  user = localStorage.getItem(USERNAME_KEY);
+  localStorage.setItem(user + TODOLIST_KEY, JSON.stringify(todos));
 }
 
 function deleteTodo(e) {
@@ -29,9 +30,11 @@ function deleteTodo(e) {
 }
 
 function checkTodo(e) {
-  const parent = e.target.parentElement;
-  //console.log(parent.getElementByTagName("span"));
-  //span.style.textDecoration = "underline";
+  const li = e.target.parentElement;
+  const span = li.childNodes[0];
+  const str = "checked";
+  
+  span.classList.toggle(str);
 }
 
 function paintTodo({ id, todo, check }) {
@@ -41,7 +44,9 @@ function paintTodo({ id, todo, check }) {
   const chkBtn = document.createElement("button");
 
   chkBtn.innerText = "✔";
+  chkBtn.classList.add("btn-chk");
   delBtn.innerText = "❌";
+  delBtn.classList.add("btn-del");
   span.innerText = todo;
 
   delBtn.addEventListener("click", deleteTodo);

@@ -3,12 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
-      rel="stylesheet"
-    />
     <title>Momentum App</title>
   </head>
   <body>
@@ -23,8 +17,9 @@
         <input type="submit" value="Log In" />
       </form>
       <div id="weather">
+        <span class="kr-font"></span>
         <span></span>
-        <span></span>
+        <span class="hidden"></span>
       </div>
       <h2 id="clock">00:00:00</h2>
       <h1 id="greeting" class="hidden"></h1>
@@ -43,6 +38,7 @@
       <span></span>
       <span></span>
     </div>
+    <script type="text/javascript" src="js/key.js"></script>
     <script type="text/javascript" src="js/greetings.js"></script>
     <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/quotes.js"></script>

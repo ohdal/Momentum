@@ -1,9 +1,7 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
-
-const HIDDEN_CLASSNAME = "hidden";
-const USERNAME_KEY = "username";
+const todoBox = document.getElementById("todo-box");
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
@@ -12,6 +10,7 @@ function setGreetingText(str) {
 
   loginForm.classList.add(HIDDEN_CLASSNAME);
   greeting.classList.remove(HIDDEN_CLASSNAME);
+  todoBox.classList.remove(HIDDEN_CLASSNAME);
 }
 
 if (savedUsername) {
@@ -27,6 +26,9 @@ if (savedUsername) {
     loginInput.value = "";
 
     setGreetingText(inputValue);
+    
+    // 그냥 새로고침 해버리기.. ^^
+    location.reload();
   }
 
   loginForm.addEventListener("submit", onLoginSubmit);
