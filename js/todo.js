@@ -14,7 +14,6 @@ if (todos.length > 0 && user) {
 }
 
 function saveTodo(todo) {
-  if (todo) todos.push(todo);
   user = localStorage.getItem(USERNAME_KEY);
   localStorage.setItem(user + TODOLIST_KEY, JSON.stringify(todos));
 }
@@ -31,10 +30,16 @@ function deleteTodo(e) {
 
 function checkTodo(e) {
   const li = e.target.parentElement;
+  const todoId = li.id.replace("todo-", "");
+
   const span = li.childNodes[0];
   const str = "checked";
-  
   span.classList.toggle(str);
+
+  const index = todos.findIndex((item) => item.id == todoId);
+  todos[index].check = !todos[index].check
+
+  saveTodo();
 }
 
 function paintTodo({ id, todo, check }) {
@@ -48,6 +53,7 @@ function paintTodo({ id, todo, check }) {
   delBtn.innerText = "❌";
   delBtn.classList.add("btn-del");
   span.innerText = todo;
+  if(check) span.classList.add("checked")
 
   delBtn.addEventListener("click", deleteTodo);
   chkBtn.addEventListener("click", checkTodo);
@@ -66,9 +72,10 @@ function handleToDoSubmit(e) {
   const newTodo = { id, todo: todoInput.value, check: false };
 
   todoInput.value = "";
+  todos.push(newTodo)
 
   paintTodo(newTodo);
-  saveTodo(newTodo);
+  saveTodo();
 }
 
 todoForm.addEventListener("submit", handleToDoSubmit);
