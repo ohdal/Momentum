@@ -37,8 +37,8 @@ function onLoginSubmit(e) {
 
   setGreetingText(inputValue);
 
-  // 그냥 새로고침 해버리기.. ^^
-  location.reload();
+  // todo.js
+  initTodos();
 }
 
 if (savedUsername) {
