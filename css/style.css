@@ -12,13 +12,15 @@ body {
   margin: 0 !important;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "NotoSansKR";
   src: url("../fonts/NotoSansKR-Regular-Alphabetic.eot");
-  src: url("../fonts/NotoSansKR-Regular-Alphabetic.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/NotoSansKR-Regular-Alphabetic.svg#NotoSansKR-Regular-Alphabetic")
-      format("svg"),
+  src: url("../fonts/NotoSansKR-Regular-Alphabetic.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/NotoSansKR-Regular-Alphabetic.svg#NotoSansKR-Regular-Alphabetic") format("svg"),
     url("../fonts/NotoSansKR-Regular-Alphabetic.ttf") format("truetype"),
     url("../fonts/NotoSansKR-Regular-Alphabetic.woff") format("woff"),
     url("../fonts/NotoSansKR-Regular-Alphabetic.woff2") format("woff2");
@@ -132,14 +134,18 @@ input {
   top: 0;
 }
 
+#todo-box {
+  width: 300px;
+}
+
 #todo-form input {
   width: 300px;
-  background-color: rgba(255, 255, 255, 0.1);
-  font-size: 18px;
+  background-color: #FFF;
+  font-size: 16px;
   outline: none;
   border-radius: 5px;
-  border: 1px solid #000;
-  padding: 5px 5px;
+  border: none;
+  padding: 5px 10px;
   margin: 0 auto;
 }
 
@@ -147,13 +153,15 @@ input {
   width: 300px;
   height: 250px;
   overflow: auto;
-  padding: 6px !important;
-  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px !important;
+  background-color: #FFF;
   border-radius: 10px;
-  border: 1px solid #000;
+  border: none;
 }
 
 #todo-list li {
+  height: 20px;
+  line-height: 20px;
   list-style-type: none;
   position: relative;
   font-size: 16px;
@@ -171,8 +179,8 @@ input {
   content: "👉🏻";
   width: 16px;
   height: 16px;
+  line-height: 20px;
   position: absolute;
-  top: -5px;
   left: 0;
 }
 
@@ -182,6 +190,8 @@ input {
 }
 
 #todo-list button {
+  width: 25px;
+  height: 20px;
   cursor: pointer;
   margin-left: 5px;
   border-radius: 5px;
