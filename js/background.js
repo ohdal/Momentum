@@ -20,7 +20,7 @@ function setBackground(idx) {
 document.body.addEventListener("click", (e) => {
     if (e.target.tagName === "BODY") {
         let temp = randomiIndex(IMAGE_COUNT);
-        while (chosenImage === temp) {
+        while (currentImage === temp) {
             temp = randomiIndex(IMAGE_COUNT);
         }
 
