@@ -33,7 +33,7 @@ document.body.addEventListener("click", (e) => {
         while (currentImage === temp) {
             temp = randomiIndex(IMAGE_COUNT);
         }
-        setBackground(IMAGE_URL, temp, IMAGE_FORM);
+        setBackground(temp);
     }
 })
 
